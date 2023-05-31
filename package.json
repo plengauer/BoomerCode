@@ -1,0 +1,9 @@
+{
+  "name": "boomer-code",
+  "version": "1.0.0",
+  "author": "philipp-lengauer <p.lengauer@gmail.com>",
+  "description": "encodes/decodes strings to/from boomer code",
+  "type": "module",
+  "dependencies": {},
+  "scripts": {}
+}
