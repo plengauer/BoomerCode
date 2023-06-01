@@ -5,6 +5,6 @@
   "description": "encodes/decodes strings to/from boomer code",
   "type": "module",
   "dependencies": {},
-  "scripts": {}
+  "scripts": {},
   "main": "encoding.js"
 }
