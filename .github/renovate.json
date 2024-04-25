@@ -3,7 +3,6 @@
   "extends": [
     "config:recommended"
   ],
-  "repositories": [ "plengauer/BoomerCode" ],
   "prHourlyLimit": 0,
   "prConcurrentLimit": 0,
   "reviewers": ["plengauer"]
