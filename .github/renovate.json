@@ -3,7 +3,6 @@
   "extends": [
     "config:recommended"
   ],
-  "username": "renovate-release",
   "gitAuthor": "Renovate Bot <bot@renovateapp.com>",
   "prHourlyLimit": 0,
   "prConcurrentLimit": 0,
