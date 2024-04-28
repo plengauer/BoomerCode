@@ -8,8 +8,6 @@ on:
 jobs:
   renovate:
     runs-on: ubuntu-latest
-    permissions:
-      issues: write
     steps:
       - uses: renovatebot/github-action@v40.1.9
         env:
