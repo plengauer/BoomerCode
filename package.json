@@ -1,6 +1,6 @@
 {
   "name": "boomerencoding",
-  "version": "1.0.2",
+  "version": "1.1.0",
   "author": "philipp-lengauer <p.lengauer@gmail.com>",
   "description": "encodes/decodes strings to/from boomer code",
   "type": "commonjs",
