@@ -22,8 +22,9 @@ jobs:
           cat ".github/workflows/deploy_observability.yaml"
           cat ".github/workflows/deploy_observability.yaml" | yq '.jobs[]'
           cat ".github/workflows/deploy_observability.yaml" | yq '.jobs[].steps[]'
-          cat ".github/workflows/deploy_observability.yaml" | yq '.jobs[].steps[].env'
-          cat ".github/workflows/deploy_observability.yaml" | yq '.jobs[].steps[].env | keys[]'
+          cat ".github/workflows/deploy_observability.yaml" | yq '.jobs[].steps[] | select(.uses == "plengauer/opentelemetry-github/actions/instrument/deploy@*")'
+          cat ".github/workflows/deploy_observability.yaml" | yq '.jobs[].steps[] | select(.uses == "plengauer/opentelemetry-github/actions/instrument/deploy@*") | .env'
+          cat ".github/workflows/deploy_observability.yaml" | yq '.jobs[].steps[] | select(.uses == "plengauer/opentelemetry-github/actions/instrument/deploy@*") | .env | keys[]'
           exit 0
           cat ".github/workflows/deploy_observability.yaml" | yq '.jobs[].steps[].env | keys[]' | grep '^OTEL_' | while read -r key; do
             value="$(cat ".github/workflows/deploy_observability.yaml" | yq '.jobs[].steps[] | select(.uses == "plengauer/opentelemetry-github/actions/instrument/deploy@*") | .env.'"$key")"
