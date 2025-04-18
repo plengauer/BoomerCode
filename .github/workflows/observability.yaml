@@ -4,8 +4,6 @@ on:
     workflows:
       - Autoapprove
       - Autoversion
-      - Deploy OpenTelemetry
-      - OpenTelemetry
       - Publish
       - Renovate
     types:
