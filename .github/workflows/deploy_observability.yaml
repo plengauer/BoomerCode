@@ -19,7 +19,7 @@ jobs:
           OTEL_EXPORTER_OTLP_HEADERS: '${{ secrets.OTEL_EXPORTER_OTLP_HEADERS }}'
       - run: |
           # set -x
-          cat ".github/workflows/deploy_observability.yaml" | yq '.jobs[].steps[].env | keys[]' | tee /dev/stderr | grep '^OTEL_' | while read -r key; do
+          cat ".github/workflows/deploy_observability.yaml" | yq -r '.jobs[].steps[].env | keys[]' | tee /dev/stderr | grep '^OTEL_' | while read -r key; do
             value="$(cat ".github/workflows/deploy_observability.yaml" | yq '.jobs[].steps[] | select(.uses == "plengauer/opentelemetry-github/actions/instrument/deploy@*") | .env.'"$key")"
             yq -i '.jobs[].steps[0].env.'"$key"' = "'"$value"'"' ".github/workflows/observability.yaml"
           done
