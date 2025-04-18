@@ -1,4 +1,4 @@
-name: 'Deploy OpenTelemetry'
+# name: 'Deploy OpenTelemetry'
 
 on:
   push:
