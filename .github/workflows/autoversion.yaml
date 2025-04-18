@@ -1,14 +1,18 @@
 name: Autoversion
-
 on:
   workflow_dispatch:
   schedule:
     - cron: '0 0 * * 1'
-
 jobs:
   bump:
     runs-on: ubuntu-latest
     steps:
+      - uses: plengauer/opentelemetry-github/actions/instrument/job@v5.12.2
+        with:
+          secrets_to_redact: ${{ toJSON(secrets) }}
+        env:
+          OTEL_EXPORTER_OTLP_ENDPOINT: ${{ secrets.OTEL_EXPORTER_OTLP_ENDPOINT }}
+          OTEL_EXPORTER_OTLP_HEADERS: ${{ secrets.OTEL_EXPORTER_OTLP_HEADERS }}
       - uses: plengauer/autoversion@v0.17.6
         with:
           github_token: ${{ secrets.ACTIONS_GITHUB_TOKEN }}
