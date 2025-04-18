@@ -20,11 +20,11 @@ jobs:
       - run: |
           # set -x
           cat ".github/workflows/deploy_observability.yaml"
-          cat ".github/workflows/deploy_observability.yaml" | yq -r '.jobs[]'
-          cat ".github/workflows/deploy_observability.yaml" | yq -r '.jobs[].steps[]'
-          cat ".github/workflows/deploy_observability.yaml" | yq -r '.jobs[].steps[].env'
-          cat ".github/workflows/deploy_observability.yaml" | yq -r '.jobs[].steps[].env | keys[]'
-          cat ".github/workflows/deploy_observability.yaml" | yq -r '.jobs[].steps[].env | keys[]' | tee /dev/stderr | grep '^OTEL_' | while read -r key; do
+          cat ".github/workflows/deploy_observability.yaml" | yq '.jobs[]'
+          cat ".github/workflows/deploy_observability.yaml" | yq '.jobs[].steps[]'
+          cat ".github/workflows/deploy_observability.yaml" | yq '.jobs[].steps[].env'
+          cat ".github/workflows/deploy_observability.yaml" | yq '.jobs[].steps[].env | keys[]'
+          cat ".github/workflows/deploy_observability.yaml" | yq '.jobs[].steps[].env | keys[]' | grep '^OTEL_' | while read -r key; do
             value="$(cat ".github/workflows/deploy_observability.yaml" | yq '.jobs[].steps[] | select(.uses == "plengauer/opentelemetry-github/actions/instrument/deploy@*") | .env.'"$key")"
             yq -i -y '.jobs[].steps[0].env.'"$key"' = "'"$value"'"' ".github/workflows/observability.yaml"
           done
