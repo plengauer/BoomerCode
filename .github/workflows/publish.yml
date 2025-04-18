@@ -9,6 +9,12 @@ jobs:
       run:
         working-directory: ./
     steps:
+      - uses: plengauer/opentelemetry-github/actions/instrument/job@v5.12.3
+        with:
+          secrets_to_redact: ${{ toJSON(secrets) }}
+        env:
+          OTEL_EXPORTER_OTLP_ENDPOINT: ${{ secrets.OTEL_EXPORTER_OTLP_ENDPOINT }}
+          OTEL_EXPORTER_OTLP_HEADERS: ${{ secrets.OTEL_EXPORTER_OTLP_HEADERS }}
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
         with:
