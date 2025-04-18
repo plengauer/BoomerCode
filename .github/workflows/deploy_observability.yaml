@@ -11,23 +11,11 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: plengauer/opentelemetry-github/actions/instrument/deploy@main
-        continue-on-error: true
+        # continue-on-error: true
         with:
           github_token: ${{ secrets.ACTIONS_GITHUB_TOKEN }}
         env:
           OTEL_EXPORTER_OTLP_ENDPOINT: '${{ secrets.OTEL_EXPORTER_OTLP_ENDPOINT }}'
           OTEL_EXPORTER_OTLP_HEADERS: '${{ secrets.OTEL_EXPORTER_OTLP_HEADERS }}'
       - run: |
-          # set -x
-          cat ".github/workflows/deploy_observability.yaml"
-          cat ".github/workflows/deploy_observability.yaml" | yq '.jobs[]'
-          cat ".github/workflows/deploy_observability.yaml" | yq '.jobs[].steps[]'
-          cat ".github/workflows/deploy_observability.yaml" | yq '.jobs[].steps[] | select(.uses == "plengauer/opentelemetry-github/actions/instrument/deploy@*")'
-          cat ".github/workflows/deploy_observability.yaml" | yq '.jobs[].steps[] | select(.uses == "plengauer/opentelemetry-github/actions/instrument/deploy@*") | .env'
-          cat ".github/workflows/deploy_observability.yaml" | yq '.jobs[].steps[] | select(.uses == "plengauer/opentelemetry-github/actions/instrument/deploy@*") | .env | keys[]'
-          cat ".github/workflows/deploy_observability.yaml" | yq '.jobs[].steps[] | select(.uses == "plengauer/opentelemetry-github/actions/instrument/deploy@*") | .env | keys[]' | grep '^OTEL_' | while read -r key; do
-            value="$(cat ".github/workflows/deploy_observability.yaml" | yq '.jobs[].steps[] | select(.uses == "plengauer/opentelemetry-github/actions/instrument/deploy@*") | .env.'"$key")"
-            yq -i '.jobs[].steps[0].env.'"$key"' = "'"$value"'"' ".github/workflows/observability.yaml"
-          done
-          cat ".github/workflows/observability.yaml"
-        
+          exit 0
