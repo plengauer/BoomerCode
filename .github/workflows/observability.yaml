@@ -3,6 +3,7 @@ on:
   workflow_run:
     workflows:
       - Autoapprove
+      - Autorerun
       - Autoversion
       - Publish
       - Renovate
