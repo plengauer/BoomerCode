@@ -17,3 +17,5 @@ jobs:
       - uses: plengauer/autorerun@v0.24.0
         with:
           github_token: ${{ secrets.ACTIONS_GITHUB_TOKEN }}
+    permissions:
+      actions: read
