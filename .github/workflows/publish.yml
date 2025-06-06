@@ -24,3 +24,5 @@ jobs:
         continue-on-error: true
         env:
           NODE_AUTH_TOKEN: ${{secrets.NPM_TOKEN}}
+    permissions:
+      actions: read

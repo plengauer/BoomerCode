@@ -20,3 +20,5 @@ jobs:
           RENOVATE_REPOSITORIES: ${{ github.repository }}
         with:
           token: ${{ secrets.ACTIONS_GITHUB_TOKEN }}
+    permissions:
+      actions: read
