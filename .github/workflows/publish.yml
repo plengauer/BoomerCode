@@ -16,7 +16,7 @@ jobs:
           OTEL_EXPORTER_OTLP_ENDPOINT: ${{ secrets.OTEL_EXPORTER_OTLP_ENDPOINT }}
           OTEL_EXPORTER_OTLP_HEADERS: ${{ secrets.OTEL_EXPORTER_OTLP_HEADERS }}
       - uses: actions/checkout@v4.2.2
-      - uses: actions/setup-node@v4.0.0
+      - uses: actions/setup-node@v4.4.0
         with:
           node-version: 19
           registry-url: https://registry.npmjs.org/
