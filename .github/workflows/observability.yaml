@@ -19,3 +19,4 @@ jobs:
           OTEL_EXPORTER_OTLP_HEADERS: ${{ secrets.OTEL_EXPORTER_OTLP_HEADERS }}
     permissions:
       actions: read
+    container: ghcr.io/plengauer/opentelemetry-github-workflow-instrumentation-runner:main
