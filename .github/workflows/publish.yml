@@ -9,7 +9,7 @@ jobs:
       run:
         working-directory: ./
     steps:
-      - uses: plengauer/opentelemetry-github/actions/instrument/job@v5.29.0
+      - uses: plengauer/opentelemetry-github/actions/instrument/job@v5.30.0
         with:
           secrets_to_redact: '["${{ github.token }}","${{secrets.NPM_TOKEN}}"]'
         env:
