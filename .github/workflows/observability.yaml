@@ -7,6 +7,7 @@ on:
       - Autoversion
       - Publish
       - Renovate
+      - Running Copilot
     types:
       - completed
 jobs:
