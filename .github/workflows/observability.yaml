@@ -7,7 +7,7 @@ on:
       - Autoversion
       - Publish
       - Renovate
-      - Running Copilot
+      - Copilot coding agent
     types:
       - completed
 jobs:
