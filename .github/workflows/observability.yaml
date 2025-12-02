@@ -5,6 +5,7 @@ on:
       - Autoapprove
       - Autorerun
       - Autoversion
+      - .github/workflows/copilot-setup-steps.yml
       - Publish
       - Renovate
       - Copilot coding agent
