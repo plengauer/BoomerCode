@@ -2,13 +2,14 @@ name: OpenTelemetry
 on:
   workflow_run:
     workflows:
+      - .github/workflows/copilot-setup-steps.yml
       - Autoapprove
       - Autorerun
       - Autoversion
-      - .github/workflows/copilot-setup-steps.yml
+      - CodeQL
+      - Copilot coding agent
       - Publish
       - Renovate
-      - Copilot coding agent
     types:
       - completed
 jobs:
