@@ -4,6 +4,7 @@ on:
     workflows:
       - .github/workflows/copilot-setup-steps.yml
       - Autoapprove
+      - Autoassign
       - Autorerun
       - Autoversion
       - CodeQL
