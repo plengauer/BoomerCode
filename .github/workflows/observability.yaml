@@ -3,13 +3,13 @@ on:
   workflow_run:
     workflows:
       - .github/workflows/copilot-setup-steps.yml
-      - Autoassign
       - Autorerun
       - Autoversion
       - CodeQL
       - Copilot coding agent
       - Publish
       - Renovate
+      - pages-build-deployment
     types:
       - completed
 jobs:
