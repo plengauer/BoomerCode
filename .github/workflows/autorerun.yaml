@@ -1,9 +1,10 @@
 name: Autorerun
 on:
   workflow_run:
+    workflows: ['Publish']
     types: completed
-concurrency:
-  group: rerun-${{ github.event.workflow_run.id }}
+  schedule:
+    - cron: '0 0 * * *' # TODO when to run
 jobs:
   rerun:
     runs-on: ubuntu-latest
