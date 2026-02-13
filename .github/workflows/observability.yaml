@@ -6,6 +6,7 @@ on:
       - Autorerun
       - Autoversion
       - CodeQL
+      - Copilot code review
       - Copilot coding agent
       - Publish
       - Renovate
