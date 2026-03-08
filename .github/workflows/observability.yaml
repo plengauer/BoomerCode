@@ -5,9 +5,11 @@ on:
       - .github/workflows/copilot-setup-steps.yml
       - Autorerun
       - Autoversion
+      - Claude
       - CodeQL
       - Copilot code review
       - Copilot coding agent
+      - OpenAI Codex
       - Publish
       - Renovate
       - pages-build-deployment
