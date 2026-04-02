@@ -11,6 +11,7 @@ on:
       - Copilot coding agent
       - OpenAI Codex
       - Publish
+      - Recompile Agentic Workflows
       - Renovate
       - pages-build-deployment
     types:
