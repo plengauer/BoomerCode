@@ -4,9 +4,11 @@ on:
     workflows:
       - .github/workflows/copilot-setup-steps.yml
       - Autorerun
+      - Autotriage
       - Autoversion
       - Claude
       - CodeQL
+      - Copilot cloud agent
       - Copilot code review
       - Copilot coding agent
       - OpenAI Codex
