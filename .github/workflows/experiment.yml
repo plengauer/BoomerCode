@@ -19,21 +19,19 @@ jobs:
         with:
           secrets_to_redact: ${{ github.token }}
       - uses: actions/checkout@main
-      - env:
-          GH_TOKEN: ${{ github.token }}
-        continue-on-error: true
-        run: |
-          gh api user --jq .id
-          gh api user --jq .login
-      - env:
-          GH_TOKEN: ${{ github.token }}
-        continue-on-error: true
-        run: |
-          user_name="github-actions[bot]"
-          gh api "/users/${user_name}" --jq .id
-          echo "$user_name"
       - run: |
           touch ${{ inputs.file }}
+          if [ -z "$(git status --porcelain)" ]; then exit 0; fi
+          if gh api user --jq .id; then
+            user_id="$(gh api user --jq .id)"
+            user_name="$(gh api user --jq .login)"
+          else
+            user_id="$(gh api "/users/${user_name}" --jq .id)"
+            user_name="github-actions[bot]"
+          fi
+          git config user.name "$user_name"
+          git config user.email "${user_id}+${user_name}@users.noreply.github.com"
+          git remote set-url origin "https://x-access-token:${GH_TOKEN}@github.com/${GITHUB_REPOSITORY}.git"
           git add -A
           git commit -m "experiment"
           git push
