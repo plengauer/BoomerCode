@@ -44,3 +44,4 @@ jobs:
     permissions:
       actions: read
       contents: write
+      issues: write
