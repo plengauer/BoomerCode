@@ -12,7 +12,7 @@ jobs:
   experiment:
     runs-on: ubuntu-latest
     steps:
-      - run: actions/checkout@main
+      - uses: actions/checkout@main
       - run: |
           touch ${{ inputs.file }}
           git add -A
