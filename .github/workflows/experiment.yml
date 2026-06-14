@@ -19,7 +19,9 @@ jobs:
         with:
           secrets_to_redact: ${{ github.token }}
       - uses: actions/checkout@main
-      - run: |
+      - env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
           touch ${{ inputs.file }}
           if [ -z "$(git status --porcelain)" ]; then exit 0; fi
           if gh api user --jq .id; then
@@ -37,3 +39,4 @@ jobs:
           git push
     permissions:
       actions: read
+      contents: write
