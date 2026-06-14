@@ -12,6 +12,7 @@ on:
       - Copilot
       - Copilot cloud agent
       - Copilot code review
+      - Experiment
       - OpenAI Codex
       - Publish
       - Recompile Agentic Workflows
