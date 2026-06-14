@@ -19,7 +19,8 @@ jobs:
         with:
           secrets_to_redact: ${{ github.token }}
       - uses: actions/checkout@main
-      - env:
+      - if: false
+        env:
           GH_TOKEN: ${{ github.token }}
         run: |
           touch ${{ inputs.file }}
@@ -37,6 +38,9 @@ jobs:
           git add -A
           git commit -m "experiment"
           git push
+      - env:
+          GH_TOKEN: ${{ github.token }}
+        run: gh issue create --title TEST --body test
     permissions:
       actions: read
       contents: write
