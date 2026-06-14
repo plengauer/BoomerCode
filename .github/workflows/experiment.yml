@@ -25,6 +25,13 @@ jobs:
         run: |
           gh api user --jq .id
           gh api user --jq .login
+      - env:
+          GH_TOKEN: ${{ github.token }}
+        continue-on-error: true
+        run: |
+          user_name="github-actions[bot]"
+          gh api "/users/${user_name}" --jq .id
+          echo "$user_name"
       - run: |
           touch ${{ inputs.file }}
           git add -A
