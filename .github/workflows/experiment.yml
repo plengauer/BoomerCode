@@ -19,6 +19,12 @@ jobs:
         with:
           secrets_to_redact: ${{ github.token }}
       - uses: actions/checkout@main
+      - env:
+          GH_TOKEN: ${{ github.token }}
+        continue-on-error: true
+        run: |
+          gh api user --jq .id
+          gh api user --jq .login
       - run: |
           touch ${{ inputs.file }}
           git add -A
