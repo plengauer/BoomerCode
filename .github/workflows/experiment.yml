@@ -18,7 +18,7 @@ jobs:
           OTEL_EXPORTER_OTLP_HEADERS: ${{ secrets.OTEL_EXPORTER_OTLP_HEADERS }}
         with:
           secrets_to_redact: ${{ github.token }}
-      - uses: actions/checkout@f0282184c7ce73ab54c7e4ab5a617122602e575f # main
+      - uses: actions/checkout@9c091bb21b7c1c1d1991bb908d89e4e9dddfe3e0 # main
       - if: false
         env:
           GH_TOKEN: ${{ github.token }}
