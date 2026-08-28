@@ -17,7 +17,6 @@ on:
       - Publish
       - Recompile Agentic Workflows
       - Renovate
-      - Report Failed Workflows
       - pages-build-deployment
     types:
       - completed
